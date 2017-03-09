@@ -1,0 +1,12 @@
+
+* Robot Face
+
+- [ ] face swapping
+- [ ] improv words 
+
+
+
+* url
+"/" is the admin panel
+/face is the face + speech
+  
