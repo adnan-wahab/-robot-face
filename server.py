@@ -1,38 +1,63 @@
-#http://flask.pocoo.org/
+#!/usr/bin/env python
+from flask import Flask, render_template, session, request
+from flask_socketio import SocketIO, Namespace, emit, join_room, leave_room, \
+    close_room, rooms, disconnect
 
-from flask import Flask, render_template
 
-#flask-sockets https://github.com/kennethreitz/flask-sockets
-
-
-from flask_sockets import Sockets
+import gevent
+import eventlet
+# Set this variable to "threading", "eventlet" or "gevent" to test the
+# different async modes, or leave it set to None for the application to choose
+# the best option based on installed packages.
+async_mode = None
 
 app = Flask(__name__)
-sockets = Sockets(app)
+app.config['SECRET_KEY'] = 'secret!'
+socketio = SocketIO(app, async_mode=async_mode)
+thread = eventlet
+
+def beep(data):
+    socketio.emit('my_response',
+                  data,
+                  namespace='/test')
 
 
+@app.route('/message', methods=['POST'])
+def message():
+    data = request.get_json(force=True)
+    print(data)
+    beep(data)
+    return 'TY'
 
-@sockets.route('/echo')
-def echo_socket(ws):
-    while not ws.closed:
-        message = ws.receive()
-        ws.send(message)
 
-
-
-@app.route("/")
-def hello():
-    return render_template('./index.html')
-
-@app.route("/face")
+@app.route('/face')
 def face():
-    return render_template('./face.html')
+    return render_template('face.html', async_mode=socketio.async_mode)
+
+@app.route('/')
+def index():
+    return render_template('index.html', async_mode=socketio.async_mode)
 
 
+class Hello(Namespace):
+    def on_my_pong(self):
+        ##TODO
+        print('heartbeet')
 
-if __name__ == "__main__":
-    from gevent import pywsgi
-    from geventwebsocket.handler import WebSocketHandler
-    server = pywsgi.WSGIServer(('', 5000), app, handler_class=WebSocketHandler)
-    server.serve_forever()
+    def on_my_ping(self):
+        emit('my_pong')
 
+    def on_connect(self):
+        global thread
+        if thread is None:
+            thread = socketio.start_background_task(target=background_thread)
+        emit('my_response', {'data': 'Connected', 'count': 0})
+
+    def on_disconnect(self):
+        print('Client disconnected', request.sid)
+
+
+socketio.on_namespace(Hello('/test'))
+
+if __name__ == '__main__':
+    socketio.run(app, debug=True)

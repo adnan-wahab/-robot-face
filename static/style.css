@@ -16,12 +16,21 @@ dt          { font-weight: normal; }
               font-size: 0.9em; border-radius: 2px; }
 .urlinput   { width: 300px; }
 
-
 .container {
-    position: relative;
-
+    width: 960px;
+    height: 500px;
 }
 
-.container *{
+img {
+    left: calc(50% - 400px);
+    left: calc(50% - 250px);
+
     position: absolute;
+    background-size: contain;
+
+    width: 800px;
+    height: 450px;
 }
+
+
+
