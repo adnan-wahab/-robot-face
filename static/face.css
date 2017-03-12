@@ -1,0 +1,104 @@
+.container {
+    width: 960px;
+    height: 500px;
+}
+
+img {
+    left: calc(50% - 400px);
+    top: calc(50% - 250px);
+
+    position: absolute;
+    background-size: contain;
+
+    width: 800px;
+    height: 450px;
+}
+
+
+body.begging .nose {
+    display: none;
+}
+
+body.angry {
+    background-color: red;
+}
+
+body.bedroom {
+    background-color: pink;
+}
+
+body.begging {
+    background-color: lightblue;
+}
+
+body.buckteeth {
+    background-color: white;
+}
+
+body.dead {
+    background-color: white;
+}
+
+body.disgust {
+    background-color: green;
+}
+
+body.dizzy {
+    background-color: white;
+}
+
+body.eyeroll {
+    background-color: gray;
+}
+
+body.happy {
+    background-color: yellow;
+}
+
+body.heart {
+    background-color: pink;
+}
+
+body.laughter {
+    background-color: yellow;
+}
+
+body.mischevious {
+    background-color: grey;
+}
+
+body.money {
+    background-color: mediumseagreen;
+}
+
+body.neutral {
+    background-color: gray;
+}
+
+body.peeved {
+    background-color: green;
+}
+
+body.sad {
+    background-color: dodgerblue;
+}
+
+body.stars {
+    background-color: yellow;
+}
+
+body.stoned {
+    background-color: gray;
+}
+
+body.surprised {
+    background-color: lightcoral;
+}
+
+body.thinking {
+    background-color: darkgoldenrod;
+}
+
+body.worry {
+    background-color: mediumpurple;
+}

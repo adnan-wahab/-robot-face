@@ -1,7 +1,6 @@
 
 * Robot Face
-
-- [ ] face swapping
+- [X] face swapping
 - [ ] improv words 
 
 
@@ -10,3 +9,10 @@
 "/" is the admin panel
 /face is the face + speech
   
+
+
+
+* dependencies
+mespeak for TTS http://www.masswerk.at/mespeak/#download
+socketio for push updates
+flask for server

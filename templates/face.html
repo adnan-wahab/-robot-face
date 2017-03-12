@@ -1,15 +1,17 @@
 <head>
-    <link rel=stylesheet href=/static/style.css type=text/css>
+    <link rel=stylesheet href="/static/face.css" type=text/css>
+
+    <script type="text/javascript" src="/static/socket.io.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+
 </head>
 <body>
 
 
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
-
-    <!-- <script type="text/javascript" src="https://rawgithub.com/hiddentao/google-tts/master/google-tts.min.js"></script>
-       -->
-
+    <script src="static/mespeak.js"></script>
     <script src="static/face.js"></script>
+    
+
     <div id="audio"></div>
 
 
@@ -17,11 +19,12 @@
         <img
             class="eyes"
             src="/static/face/eyes-angry-0.svg"
-        >
-        <img src="/static/face/nose.svg"
-        >
+             >
+        <img src="/static/face/nose.svg" class="nose">
 
         <img src="/static/face/mouth-dead-0.svg"
+
+             class="mouth"
         >
     </div>
 

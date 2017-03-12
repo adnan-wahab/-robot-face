@@ -1,3 +1,33 @@
+let emotions = [
+  "angry",
+  "bedroom",
+  "begging",
+  "buckteeth",
+  "dead",
+  "disgust",
+  "dizzy",
+  "eyeroll",
+  "happy",
+  "heart",
+  "laughter",
+  "mischevious",
+  "money",
+  "neutral",
+  "peeved",
+  "sad",
+  "stars",
+  "stoned",
+  "surprised",
+  "thinking",
+  "worry"
+]
+
+emotions.forEach( (emo) => {
+  let butt = document.createElement('button')
+  butt.textContent = emo
+  document.querySelector('.emotions').appendChild(butt);
+});
+
 //var ws = new WebSocket('ws://localhost:5000/echo');
 // ws.onmessage = (evt) => {
 //   console.log(evt.data)
@@ -6,27 +36,42 @@
 let textarea = document.querySelector('textarea')
 
 
-document.body.addEventListener('keydown', (e) => {
-  if (e.which !== 13) return;
+// document.body.addEventListener('keydown', (e) => {
+//   if (e.which !== 13) return;
 
-  let val = textarea.value
-  textarea.value = '';
+//   let val = textarea.value
+//   textarea.value = '';
+
+//   let message = {
+//     field: 'voice',
+//     value: val
+//   }
+
+//   sendMessage(message)
+// })
+
+
+
+function speak () {
 
   let message = {
-    place: 'voice',
-    command: val
+    field: 'speak',
+    value: document.querySelector('textarea').textContent
   }
 
-  sendMessage(message)
-})
+    sendMessage(message)
+}
 
 document.body.addEventListener('click', (e) => {
   let target = e.target
 
-  if (target.tagName  !== 'BUTTON') return;
+  if (target.tagName !== 'BUTTON') return;
+  if (target.className == 'speak') return speak();
+
   let message = {
-    place: target.parentElement.firstElementChild.textContent,
-    command: target.textContent
+    field: target.parentElement.firstElementChild.textContent,
+    value:
+      target.textContent
   }
 
   sendMessage(message)

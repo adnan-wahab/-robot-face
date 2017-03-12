@@ -1,32 +1,51 @@
 <head>
-    <link rel=stylesheet href=/static/style.css type=text/css>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <link rel=stylesheet
+          href="/static/admin.css"
+          type="text/css">
+
     <script defer src="static/admin.js"></script>
+
 </head>
 <body>
-    this is the admin page
+    <h4>
+        this is the admin page
+    </h4>
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <div class="btn-group-vertical">
+                <label>eyes</label>
+                <button>open</button>
+                <button>close</button>
+                <button>blink</button>
+                </div>
+                <!-- 
+                     <div class="btn-group-vertical">
+                     <label>mouth</label>
+                     <button>open</button>
+                     <button>close</button>
+                     </div> -->
+            </div>
 
-    <div>
-        <label>eyes</label>
-        <button>open</button>
-        <button>close</button>
-        <button>blink</button>
+            <div class="emotions btn-group-vertical col-4">
+                <label>emotion</label>
+            </div>
+
+            <div class="form-group">
+            <textarea>
+            </textarea>
+            <button class="speak">speak</button>
+            </div>
+
+            </div>
+        </div>
     </div>
 
-    <div>
-        <label>mouth</label>
-        <button>open</button>
-        <button>close</button>
-    </div>
-
-
-    <div>
-        <label>emotion</label>
-            <button>angry</button>
-            <button>happy</button>
-    </div>
-
-
-    <textarea>
-
-    </textarea>
+    <nav class="navbar fixed-bottom navbar-light bg-faded">
+        <a class="navbar-brand" href="#">Fixed bottom</a>
+    </nav>
 </body>
