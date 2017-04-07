@@ -1,18 +1,74 @@
-
-* Robot Face
-- [X] face swapping
-- [ ] improv words 
-
+* rapa - Mycin
+a knowledge based expert system based on mycin by edward shortliffe in 1974
+and emycin by peter norvig.
 
 
-* url
+Mycin was designed to prescribe antibiotic therapy for bacterial blood
+infections, and was judged to perform this task as well as 
+experts in the field.
+
+rmycin difffers from emycin in provinding an automatic means of asking the user
+questions when answers cannot be derived from the rules. 
+
+rmycin lets the knowledge base designer write a simple declaration instead of a
+rule, nad will even assume a default declaration if none is provided. 
+
+the ssytem also makes sure that the same question is never asked twice. 
+
+caching derived facts
+
+knowledge base designer - doctor
+knowledge engineer
+
+
+the real mycin was more complex, taking into account any drugs or operations
+the patient may previously have had. 
+
+IT also went on to decide the real question: what therapy to prescribe.
+
+the real mycin had about 400 rule and 10 contexts
+
+
+
+* example
+Rule 52:
+  If
+    1) the cite of the culture is blood
+    2) The gram of the organism is neg
+    3) the morphology of the organism is rod
+    4) the burn of the patient is serious
+  Then there is weakly suggestive evidence (0.4) that
+    1) The identity of the organism is pseudomonas 
+
+
+
+rule 71: 
+  If 
+    the gram of the organism is pos
+    the morphologoy of the organism is coccus
+    growth conformation organism is clumps
+  Then there is strongly suggestive evidence (.7) that
+    1) The identity of the organism is staphyloccocus
+
+
+mycin lead to the development of the emyycin expert-system shell.
+
+The name refers to the shell for acquiring knowledge, reasoning with it, 
+and explaining the results, without the specific medical knowledge
+
+* usage
+
+```
+pyenv my_env
+pip install requirements.txt
 "/" is the admin panel
 /face is the face + speech
-  
+```
 
 
 
-* dependencies
-mespeak for TTS http://www.masswerk.at/mespeak/#download
-socketio for push updates
-flask for server
+
+
+
+* Bibliography
+Paradigms of Artificial Intelligence Programming by Norvig
