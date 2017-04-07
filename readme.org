@@ -59,8 +59,9 @@ and explaining the results, without the specific medical knowledge
 * usage
 
 ```
-pyenv my_env
-pip install requirements.txt
+source my_env/bin/activate
+pip install -r requirements.txt
+python server.py
 "/" is the admin panel
 /face is the face + speech
 ```
